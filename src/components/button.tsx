@@ -6,8 +6,8 @@ interface BtnProps extends TouchableOpacityProps {
 
 export default function Button({label, ...props}: BtnProps) {
   return (
-    <TouchableOpacity className='h-14 bg-blue-500 items-center justify-center' {...props}>
-        <Text className='text-white uppercase text-xl font-extrabold'>{label}</Text>
+    <TouchableOpacity className='h-12 bg-[#8B5CF6] rounded-[25px] items-center justify-center mt-14' {...props}>
+        <Text className='text-white uppercase text-2xl font-extrabold '>{label}</Text>
     </TouchableOpacity>
   )
 }

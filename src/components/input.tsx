@@ -7,8 +7,8 @@ interface InputProps extends TextInputProps {
 export default function Input({ label, ...props }: InputProps) {
     return (
         <View>
-            <Text>{label}</Text>
-            <TextInput className='h-12 border border-gray-500 px-4' {...props} />
+            <Text className='text-slate-400'>{label}</Text>
+            <TextInput {...props} />
         </View>
     )
 }

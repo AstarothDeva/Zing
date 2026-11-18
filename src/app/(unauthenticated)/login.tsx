@@ -1,15 +1,47 @@
 import Button from '@/src/components/button'
 import Input from '@/src/components/input'
 import { router } from 'expo-router'
-import { View } from 'react-native'
+import { Image, Text, Pressable, Switch, View } from 'react-native'
 
 export default function Login() {
   return (
-    <View className='p-6 gap-4'>
-      <Input label='Email'/>
-      <Input label='Password' secureTextEntry={true}/>
-      <Button label='Login' onPress={() => router.push('/home')}/>
-      <Button label='Create Account' onPress={() => router.push('/register')}/>
+    <View className='flex-1 bg-white'>
+      <View className='items-center pt-7 h-36 z-20'>
+        <Image source={require('@/assets/images/zing-logo.png')} className='h-24 w-24' resizeMode='contain'/>
+      </View>
+      
+      <View className='bg-white w-2/5 h-36 absolute top-0 right-0 rounded-br-[45px] z-10'></View>
+      <View className='bg-[#232021] w-2/5 absolute top-0 bottom-0 right-0 mb-24 rounded-br-[35px]'></View>
+
+      <View className= 'mb-24 flex-1 bg-[#232021] rounded-br-[30px] rounded-bl-[30px] rounded-tl-[30px]'>
+        <View className='p-6 gap-12'>
+
+          <View className='mt-10 bg-slate-600 rounded-full flex-row items-center justify-between'>
+            <View className='bg-[#6D28D9] w-1/2 rounded-full items-center p-2'>
+              <Text className='text-xl text-white'>Login</Text>
+            </View>
+            <Pressable className='bg-slate-600 w-1/2 rounded-full items-center p-2' onPress={() => router.replace('/register')}> 
+              <Text className='text-xl text-white'>Sign up</Text>
+            </Pressable>
+          </View>
+          
+          <Input className='border-[#6D28D9] border-b' label='Email:'/>
+          <Input className='border-[#6D28D9] border-b text-white' label='Password:' secureTextEntry={true}/>
+          <Button label='Login' onPress={() => router.replace('/home')}/>
+        </View>
+      </View>
+
+      <View className='flex-row  items-center absolute bottom-10 right-2'>
+        <Switch
+          value={false}
+          trackColor={{ false: '#4A4647', true: '#6D28D9' }}
+          thumbColor='#F9EEEE'
+        />
+        <Text className='font-semibold text-lg'>Remember me</Text>
+      </View>
+
     </View>
   )
 }
+
+   /*<Button label='Create Account' onPress={() => router.push('/register')}/>*/
